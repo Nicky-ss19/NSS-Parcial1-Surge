@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Esto es para que se vean bien los acentos y la ñ -->
+  <meta charset="UTF-8">
+  <!-- Y esto para que la página se adapte al celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcial 1 | Electiva 2 - DevOps</title>
+
+  <!-- Las mismas letras de mis otras prácticas: cursiva para el título y redondita para el texto -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mis colores de siempre, guardados en variables */
+    :root {
+      --negro: #111111;
+      --dorado: #C9A227;
+      --crema: #FBF6EC;
+      --fucsia: #D6336C;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: var(--crema);
+      color: var(--negro);
+    }
+
+    /* La franja negra de arriba con el saludo en dorado */
+    header {
+      background: var(--negro);
+      text-align: center;
+      padding: 40px 20px;
+      border-bottom: 4px solid var(--dorado);
+    }
+
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      color: var(--dorado);
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      color: var(--crema);
+      margin: 8px 0 0;
+    }
+
+    /* El contenido centrado y no muy ancho, para que se lea cómodo */
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    /* Subtítulos dorados con su barrita fucsia */
+    h2 {
+      color: var(--dorado);
+      border-left: 5px solid var(--fucsia);
+      padding-left: 10px;
+    }
+
+    /* Para resaltar nombres de archivos y comandos */
+    code {
+      background: var(--negro);
+      color: var(--dorado);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header>
+    <h1>¡Hola Mundo! 👋</h1>
+    <p>1er Parcial · Electiva 2 (DevOps) · ITLA</p>
+  </header>
+
+  <main>
+    <!-- Quién hizo la práctica -->
+    <h2>¿Quién hizo esto?</h2>
+    <p>Yo, Nicole Alejandra Santana Sánchez, matrícula 2025-1213. Profe: Elvis Cruz.</p>
+
+    <!-- De qué trata -->
+    <h2>¿De qué trata?</h2>
+    <p>De integración continua. O sea, esta página no la subí a mano: cada vez que hago <code>git push</code> a la rama <code>main</code>, GitHub Actions la publica solita en Surge.sh 🚀</p>
+
+    <!-- El flujo paso a paso -->
+    <h2>¿Cómo funciona?</h2>
+    <ol>
+      <li>Escribo la página en mi compu, en mi repositorio local.</li>
+      <li>Hago <code>git push</code> a GitHub.</li>
+      <li>GitHub Actions lee el archivo <code>.github/workflows/main.yml</code> y arranca solo.</li>
+      <li>Instala Surge y publica la página con mi token.</li>
+    </ol>
+
+    <!-- Lo del secret -->
+    <h2>¿Y la clave de Surge?</h2>
+    <p>Pues no está en el código. La guardé como <em>secret</em> en GitHub, así nadie la ve, pero GitHub Actions sí la puede usar 🔒</p>
+  </main>
+
+  <footer>Hecho con HTML y CSS por Nicky 💛 · 2026</footer>
+
+</body>
+</html>

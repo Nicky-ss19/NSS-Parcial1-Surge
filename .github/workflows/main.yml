@@ -1,0 +1,36 @@
+# Mi integración continua para el 1er Parcial de Electiva 2 (DevOps)
+name: Desplegar en Surge
+
+# ¿Cuándo se ejecuta? Pues cada vez que hago push a la rama main
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    # La máquina virtual (el "runner") donde GitHub corre todo
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. El runner empieza vacío, así que primero clona mi repositorio
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      # 2. Instalar Node.js, porque Surge se instala con npm
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 3. Instalar Surge
+      - name: Instalar Surge
+        run: npm install -g surge
+
+      # 4. Publicar la página en Surge
+      # El correo y el token vienen de los secrets de GitHub, así no se ven en el código
+      - name: Publicar en Surge
+        run: surge ./ nicky-electiva2-parcial1.surge.sh
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
